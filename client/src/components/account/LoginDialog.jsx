@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 
 import { Dialog, Box, Typography,List ,ListItem,styled } from "@mui/material"
+import { adduser } from '../../service/api';
 
 import {qrCodeImage} from '../../components/constants/data'
 import { AccountContext } from '../../context/AccountProvider';
@@ -50,9 +51,10 @@ const LoginDialog = () => {
 
 const {setAccount}=useContext(AccountContext);
 
-const onLoginSuccess = (res)=>{
+const onLoginSuccess = async (res)=>{
     const decoded = jwt_decode(res.credential);
    setAccount(decoded);
+   await adduser(decoded);
 }
 const onLoginError = (res)=>{
 console.log('Login Failed',res);
