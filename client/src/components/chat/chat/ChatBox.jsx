@@ -12,14 +12,15 @@ import Messages from "./Messages";
 const ChatBox = () => {
 
 const {person,account} = useContext(AccountContext);
-const personsub=person.sub, accountsub=account.sub;
+
 useEffect(()=>{
+
   const getConversationDetails = async ()=>{
-    let data = await getConversation({senderId: accountsub,receiverId: personsub});
+    let data = await getConversation({senderId: account.sub,receiverId: person.sub});
     console.log(data);
   }
   getConversationDetails();
-},[personsub]);
+},[person.sub,account.sub]);
 
 
 
