@@ -1,7 +1,7 @@
 
 import { Box,Typography,styled } from "@mui/material";
 import {Search,MoreVert} from "@mui/icons-material";
-import { defaultProfilePicture } from "../../constants/data";
+// import { defaultProfilePicture } from "../../constants/data";
 
 
 const Header = styled(Box)`

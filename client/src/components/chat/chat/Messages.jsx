@@ -30,7 +30,9 @@ if(code === 13){
     senderId: account.sub,
     receiverId: person.sub,
     // conversationId:
+    
   }
+  console.log(message);
 }
   }
   return (

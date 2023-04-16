@@ -36,7 +36,8 @@ transform:rotate(40deg)
 
 const Footer = ({sendText}) => {
 
-const [text,setText] = useState('');
+// const [text,setText] = useState('');
+const [setText] = useState('');
 
   return (
    <Container>
