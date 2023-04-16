@@ -1,5 +1,8 @@
+import { useContext } from "react";
 
 import { Box,styled } from "@mui/material";
+
+import {AccountContext} from '../../../context/AccountProvider';
 
 // component
 import Footer from "./Footer";
@@ -10,11 +13,26 @@ background-repeat: no-repeat;
 background-size: cover;
 `;
 const Component = styled(Box)`
-height:80vh;
+height:78vh;
 overflow-y:scroll;
 `;
 
-const Messages = () => {
+
+const Messages = ({person}) => {
+
+const {account} = useContext(AccountContext);
+
+  const sendText = (e)=>{
+console.log(e);
+const code = e.keyCode || e.which;
+if(code === 13){
+  let message = {
+    senderId: account.sub,
+    receiverId: person.sub,
+    // conversationId:
+  }
+}
+  }
   return (
     <>
    <Wrapper>
@@ -23,7 +41,7 @@ const Messages = () => {
 </Component>
 
    </Wrapper>
-   <Footer/>
+   <Footer sendText = {sendText}/>
    </>
   )
 }

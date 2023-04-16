@@ -15,7 +15,7 @@ background:#e9edef;
 `;
 
 
-const Conversations = () => {
+const Conversations = ({text}) => {
 
   const[users,setUsers] = useState([]);
 
@@ -24,10 +24,11 @@ const {account} = useContext(AccountContext);
   {
     const fetchData = async ()=>{
       let response = await getUsers();
-      setUsers(response);
+      const filteredData = response.filter(user => user.name.toLowerCase().includes(text.toLowerCase()));
+      setUsers(filteredData);
     }
     fetchData();
-  },[])
+  },[text])
 
   return (
    <Component>
