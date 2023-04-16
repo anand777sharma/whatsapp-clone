@@ -14,13 +14,14 @@ const ChatBox = () => {
 const {person,account} = useContext(AccountContext);
 const personsub=person.sub, accountsub=account.sub;
 useEffect(()=>{
+  const getConversationDetails = async ()=>{
+    let data = await getConversation({senderId: accountsub,receiverId: personsub});
+    console.log(data);
+  }
   getConversationDetails();
-},[person.sub]);
+},[personsub]);
 
-const getConversationDetails = async ()=>{
-  let data = await getConversation({senderId: accountsub,receiverId: personsub});
-  console.log(data);
-}
+
 
   return (
    <Box>
