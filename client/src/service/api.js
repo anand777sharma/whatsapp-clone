@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8000';
+const url = 'http://localhost:8000' || 'https://whatsapp-chat-app-database.onrender.com';
 export const adduser = async (data) => {
     try {
         axios.post(`${url}/add`, data);
